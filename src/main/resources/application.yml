@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework.web: TRACE
+  file: /var/log/microservice-samples/ms-registry.log
+
+# default port
+server:
+  port: 8761
+
+# set the following attributes to false, because by default Eureka registers itself as a client
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

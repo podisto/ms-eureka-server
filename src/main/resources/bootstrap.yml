@@ -1,0 +1,7 @@
+# Eureka server name
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    config:
+      enabled: false
