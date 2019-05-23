@@ -6,9 +6,28 @@ logging:
 # default port
 server:
   port: 8761
+  ssl:
+    enabled: true
+    client-auth: need
+    key-store: classpath:eureka.jks
+    key-store-password: eureka
+    key-alias: eureka
+    key-store-type: JKS
+    key-store-provider: SUN
+    trust-store: classpath:eureka.jks
+    trust-store-password: eureka
+    trust-store-type: JKS
 
 # set the following attributes to false, because by default Eureka registers itself as a client
 eureka:
+  instance:
+    hostname: localhost
+    secure-port: ${server.port}
+    secure-port-enabled: true
+    non-secure-port-enabled: false
+    home-page-url: https://${eureka.instance.hostname}${server.port}/info
+    health-check-url: https://${eureka.instance.hostname}:${server.port}/health
+    home-page-url-path: https://${eureka.instance.hostname}:${server.port}/
   client:
     register-with-eureka: false
     fetch-registry: false
